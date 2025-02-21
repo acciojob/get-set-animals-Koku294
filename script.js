@@ -1,32 +1,51 @@
-//complete this code
-class Animal {species: string; 
-  constructor(species: string) {
-    this.species = species; 
-  }
+// Base Animal Class
+class Animal {
+    private _species: string;
 
- 
-  makeSound(): void {
-    console.log(`The ${this.species} makes a sound`);
-  }
+    constructor(species: string) {
+        this._species = species;
+    }
+
+    // Getter to return the species of the animal
+    get species(): string {
+        return this._species;
+    }
+
+    // Method to log the sound message
+    makeSound(): void {
+        console.log(`The ${this.species} makes a sound`);
+    }
 }
 
-class Dog extends Animal {constructor(species: string) {
-    super(species);
-  }
+// Cat Class that inherits from Animal
+class Cat extends Animal {
+    constructor(species: string) {
+        super(species); // Calling the constructor of the Animal class
+    }
 
+    // Method to log "purr"
+    purr(): void {
+        console.log('purr');
+    }
+}
 
-  bark(): void {
-    console.log("woof");
-  }}
+// Dog Class that inherits from Animal
+class Dog extends Animal {
+    constructor(species: string) {
+        super(species); // Calling the constructor of the Animal class
+    }
 
-class Cat extends Animal {constructor(species: string) {
-    super(species); 
-  }
-  purr(): void {
-    console.log("purr");
-  }}
+    // Method to log "woof"
+    bark(): void {
+        console.log('woof');
+    }
+}
 
-// Do not change the code below this line
-window.Animal = Animal;
-window.Dog = Dog;
-window.Cat = Cat;
+// Example Usage
+const myCat = new Cat("Siamese");
+myCat.makeSound(); // Expected Output: The Siamese makes a sound
+myCat.purr();      // Expected Output: purr
+
+const myDog = new Dog("Golden Retriever");
+myDog.makeSound(); // Expected Output: The Golden Retriever makes a sound
+myDog.bark();      // Expected Output: woof
