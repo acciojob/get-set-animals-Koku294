@@ -40,7 +40,9 @@ class Dog extends Animal {
         console.log('woof');
     }
 }
-
+window.Cat = Cat;
+window.Dog = Dog;
+window.Animal = Animal;
 // Example Usage
 const myCat = new Cat("Siamese");
 myCat.makeSound(); // Expected Output: The Siamese makes a sound
